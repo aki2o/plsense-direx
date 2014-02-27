@@ -61,7 +61,7 @@ Download plsense-direx.el and put it on your load-path.
 
 ### Performance
 
-2014/02/22, at present, the action of plsense-direx.el is slowly very well.  
+2014/02/22, at present, the action of plsense-direx.el is very slowly.  
 I've sent the ![pull request](https://github.com/m2ym/direx-el/pull/37) that makes improvements to this trouble.  
 But, if this trouble is not given improvement, you can get my improvements by using ![my fork](https://github.com/aki2o/direx-el/tree/tune-up-performance).
 
