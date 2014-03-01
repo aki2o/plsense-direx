@@ -1,4 +1,4 @@
-;;; plsense-direx.el --- Perl Package Explorer.
+;;; plsense-direx.el --- Perl Package Explorer
 
 ;; Copyright (C) 2014  Hiroaki Otsu
 
