@@ -17,7 +17,7 @@ direx.elについては、<https://github.com/m2ym/direx-el>
 
 ### package.elを使う場合
 
-2014/02/22 登録申請中
+2014/03/02 melpaリポジトリからインストール可能
 
 ### el-get.elを使う場合
 

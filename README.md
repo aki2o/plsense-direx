@@ -19,7 +19,7 @@ You can show the help of the pointed package/method by pushing "?".
 
 ### If use package.el
 
-2014/02/22 Now application
+2014/03/02 It's available by using melpa.
 
 ### If use el-get.el
 
