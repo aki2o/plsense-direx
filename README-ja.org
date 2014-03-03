@@ -5,7 +5,7 @@
   Perlのパッケージ構造を表示/移動することができるEmacsの拡張です。  
   direx.elと同じように操作できます。  
 
-  direx.elについては、https://github.com/m2ym/direx-el
+  direx.elについては、[[https://github.com/m2ym/direx-el]]
 
   [[file:image/demo.png][demo]]
 
@@ -25,7 +25,7 @@
 
 *** el-get.elを使う場合
 
-    2014/02/22 登録申請中
+    2014/03/03 利用可能。ただし、masterブランチのみです。
 
 *** auto-install.elを使う場合
    

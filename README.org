@@ -7,7 +7,7 @@
   This is a extension of Emacs that is a explorer for the package structure of Perl.  
   You can handle the explorer in the same way as direx.el.  
 
-  About direx.el, see https://github.com/m2ym/direx-el
+  About direx.el, see [[https://github.com/m2ym/direx-el]]
 
   [[file:image/demo.png][demo]]
   
@@ -27,7 +27,7 @@
 
 *** If use el-get.el
 
-    2014/02/22 Now application
+    2014/03/03 It's available. But, master branch only.
 
 *** If use auto-install.el
     

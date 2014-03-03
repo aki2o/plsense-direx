@@ -23,7 +23,7 @@ You can show the help of the pointed package/method by pushing "?".
 
 ### If use el-get.el
 
-2014/02/22 Now application
+2014/03/03 It's available. But, master branch only.
 
 ### If use auto-install.el
 
