@@ -18,6 +18,13 @@
 
     You can show the help of the pointed package/method by pushing "?".  
     
+
+* Requirement
+
+  - Unix Shell ( If Windows, e.g. Cygwin )
+  - Perl
+  - [[https://github.com/aki2o/plsense][PlSense]]
+    
     
 * Install
   

@@ -15,6 +15,12 @@ About direx.el, see <https://github.com/m2ym/direx-el>
 
 You can show the help of the pointed package/method by pushing "?".  
 
+# Requirement
+
+-   Unix Shell ( If Windows, e.g. Cygwin )
+-   Perl
+-   ![PlSense](https://github.com/aki2o/plsense)
+
 # Install
 
 ### If use package.el

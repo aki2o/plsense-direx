@@ -13,6 +13,12 @@ direx.elについては、<https://github.com/m2ym/direx-el>
 
 パッケージやメソッドにポイントしている状態で、"?"を押すとヘルプが表示されます。  
 
+# Emacs以外に必要なもの
+
+-   Unixシェル (Windowsの場合は、Cygwinなど)
+-   Perl実行環境
+-   ![PlSense](https://github.com/aki2o/plsense)
+
 # インストール
 
 ### package.elを使う場合
