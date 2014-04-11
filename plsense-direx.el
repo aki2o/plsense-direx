@@ -5,8 +5,8 @@
 ;; Author: Hiroaki Otsu <ootsuhiroaki@gmail.com>
 ;; Keywords: perl, convenience
 ;; URL: https://github.com/aki2o/plsense-direx
-;; Version: 0.0.1
-;; Package-Requires: ((direx "0.1alpha") (plsense "0.3.2") (log4e "0.2.0") (yaxception "0.1"))
+;; Version: 0.1.0
+;; Package-Requires: ((direx "0.1alpha") (plsense "0.3.2") (log4e "0.2.0") (yaxception "0.3.2"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -79,7 +79,7 @@
 ;; - Emacs ... GNU Emacs 24.3.1 (i686-pc-linux-gnu, GTK+ Version 3.4.2) of 2013-08-22 on chindi02, modified by Debian
 ;; - direx.el ... Version 0.1alpha
 ;; - plsense.el ... Version 0.3.2
-;; - yaxception.el ... Version 0.1
+;; - yaxception.el ... Version 0.3.2
 ;; - log4e.el ... Version 0.2.0
 
 
@@ -644,7 +644,7 @@
                  :face 'plsense-direx:regular-method-face))
 
 (defmethod direx:item-refresh ((item plsense-direx::item))
-  (yaxception:$
+  (yaxception:$~
     (yaxception:try
       (let* ((pt (direx:item-start item))
              (parent (direx:item-parent item))
@@ -667,9 +667,7 @@
         (plsense-direx--trace "finished direx:item-refresh : %s" addr)))
     (yaxception:catch 'error e
       (plsense-direx::mirror-init)
-      (plsense-direx--error "failed direx:item-refresh : %s\n%s"
-                            (yaxception:get-text e)
-                            (yaxception:get-stack-trace-string e))
+      (plsense-direx--error "failed direx:item-refresh : %s" (yaxception:get-text e))
       (kill-buffer)
       (yaxception:throw e))))
 
@@ -683,7 +681,7 @@
 (defadvice direx:item-expand (around plsense-direx:fix activate)
   (if (not plsense-direx::mirror-active-p)
       ad-do-it
-    (yaxception:$
+    (yaxception:$~
       (yaxception:try
         (plsense-direx--trace "start direx:item-expand")
         (lexical-let ((line (+ (count-lines 1 (direx:item-end (ad-get-arg 0))) 1)))
@@ -695,9 +693,7 @@
             (plsense-direx::mirror-stop))))
       (yaxception:catch 'error e
         (plsense-direx::mirror-init)
-        (plsense-direx--error "failed direx:item-expand : %s\n%s"
-                              (yaxception:get-text e)
-                              (yaxception:get-stack-trace-string e))
+        (plsense-direx--error "failed direx:item-expand : %s" (yaxception:get-text e))
         (kill-buffer)
         (yaxception:throw e)))))
 
@@ -709,7 +705,7 @@
 (defadvice direx:refresh-whole-tree (around plsense-direx:fix activate)
   (if (not plsense-direx::active-p)
       ad-do-it
-    (yaxception:$
+    (yaxception:$~
       (yaxception:try
         (lexical-let* ((item (or (ad-get-arg 0)
                                 (direx:item-at-point)))
@@ -730,9 +726,7 @@
           (plsense-direx--trace "finished direx:refresh-whole-tree : %s" addr)))
       (yaxception:catch 'error e
         (plsense-direx::mirror-init)
-        (plsense-direx--error "failed direx:refresh-whole-tree : %s\n%s"
-                              (yaxception:get-text e)
-                              (yaxception:get-stack-trace-string e))
+        (plsense-direx--error "failed direx:refresh-whole-tree : %s" (yaxception:get-text e))
         (ignore-errors (kill-buffer))
         (yaxception:throw e)))))
 
@@ -846,7 +840,7 @@
          (mtd (when mtdnm (plsense-direx::make-method-by-name mtdnm pkg pkgnm exrets)))
          (loc (or mtd pkg))
          (addr (plsense-direx::build-address pkgnm mtdnm)))
-    (yaxception:$
+    (yaxception:$~
       (yaxception:try
         (when (not loc)
           (yaxception:throw 'plsense-direx:illegal-pkg-error :pkg pkgnm))
@@ -869,9 +863,7 @@
         buff)
       (yaxception:catch 'error e
         (plsense-direx::mirror-init)
-        (plsense-direx--error "failed open buffer : %s\n%s"
-                              (yaxception:get-text e)
-                              (yaxception:get-stack-trace-string e))
+        (plsense-direx--error "failed open buffer : %s" (yaxception:get-text e))
         (when (buffer-live-p buff)
           (kill-buffer buff))
         (plsense-direx::show-message "Failed open explorer : %s" (yaxception:get-text e))))))
@@ -895,7 +887,7 @@
 (defun plsense-direx:open-explorer (&optional other-window)
   "Open perl package explorer."
   (interactive "P")
-  (yaxception:$
+  (yaxception:$~
     (yaxception:try
       (if (not (plsense--active-p))
           (plsense-direx::show-message "Not available buffer : %s" (buffer-name))
@@ -918,9 +910,7 @@
       (message (yaxception:get-text e)))
     (yaxception:catch 'error e
       (plsense-direx::show-message "Failed open explorer" (yaxception:get-text e))
-      (plsense-direx--error "failed open explorer : %s\n%s"
-                            (yaxception:get-text e)
-                            (yaxception:get-stack-trace-string e)))))
+      (plsense-direx--error "failed open explorer : %s" (yaxception:get-text e)))))
 
 ;;;###autoload
 (defun plsense-direx:open-explorer-other-window ()
@@ -932,7 +922,7 @@
 (defun plsense-direx:display-help ()
   "Display help buffer about the current node/leaf."
   (interactive)
-  (yaxception:$
+  (yaxception:$~
     (yaxception:try
       (let* ((item (or (direx:item-at-point)
                        (plsense-direx::show-message "Item not found from current point.")))
@@ -948,15 +938,13 @@
           (display-buffer buff))))
     (yaxception:catch 'error e
       (plsense-direx::show-message "Failed display help : %s" (yaxception:get-text e))
-      (plsense-direx--error "failed display help : %s\n%s"
-                            (yaxception:get-text e)
-                            (yaxception:get-stack-trace-string e)))))
+      (plsense-direx--error "failed display help : %s" (yaxception:get-text e)))))
 
 ;;;###autoload
 (defun plsense-direx:update-current-package ()
   "Update the package of current point."
   (interactive)
-  (yaxception:$
+  (yaxception:$~
     (yaxception:try
       (when (and (plsense--active-p)
                  (plsense--ready-p)
@@ -987,15 +975,13 @@
                   (plsense-direx--trace "updated current package : %s" addr))))))))
     (yaxception:catch 'error e
       (plsense-direx::show-message "Failed update current package : %s" (yaxception:get-text e))
-      (plsense-direx--error "failed update current package : %s\n%s"
-                            (yaxception:get-text e)
-                            (yaxception:get-stack-trace-string e)))))
+      (plsense-direx--error "failed update current package : %s" (yaxception:get-text e)))))
 
 ;;;###autoload
 (defun plsense-direx:setup-current-buffer ()
   "Do setup for using plsense-direx in current buffer."
   (interactive)
-  (yaxception:$
+  (yaxception:$~
     (yaxception:try
       (when (plsense--active-p)
         ;; Key binding
@@ -1010,9 +996,7 @@
         (plsense-direx--info "finished setup for %s" (current-buffer))))
     (yaxception:catch 'error e
       (plsense-direx::show-message "Failed setup current buffer : %s" (yaxception:get-text e))
-      (plsense-direx--error "failed setup current buffer : %s\n%s"
-                            (yaxception:get-text e)
-                            (yaxception:get-stack-trace-string e)))))
+      (plsense-direx--error "failed setup current buffer : %s" (yaxception:get-text e)))))
 
 
 (provide 'plsense-direx)
