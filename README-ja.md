@@ -69,6 +69,8 @@ plsense-direx.elをダウンロードし、load-pathの通った場所に配置�
 それを軽減する ![PullRequest](https://github.com/m2ym/direx-el/pull/37) を作成しましたが、取り込まれない等でこの問題が改善されない場合、
 ![私のフォーク版](https://github.com/aki2o/direx-el/tree/tune-up-performance) を使うことで改善することができます。  
 
+2014/04/11 この問題は解消しました。  
+
 # 動作確認
 
 -   Emacs &#x2026; GNU Emacs 24.3.1 (i686-pc-linux-gnu, GTK+ Version 3.4.2) of 2013-08-22 on chindi02, modified by Debian

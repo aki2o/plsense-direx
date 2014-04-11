@@ -78,6 +78,8 @@
     それを軽減する [[https://github.com/m2ym/direx-el/pull/37][PullRequest]] を作成しましたが、取り込まれない等でこの問題が改善されない場合、
     [[https://github.com/aki2o/direx-el/tree/tune-up-performance][私のフォーク版]] を使うことで改善することができます。  
 
+    2014/04/11 この問題は解消しました。  
+
 
 * 動作確認
   
