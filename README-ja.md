@@ -77,6 +77,6 @@ plsense-direx.elをダウンロードし、load-pathの通った場所に配置�
 -   direx.el &#x2026; 0.1alpha
 -   plsense.el &#x2026; 0.3.2
 -   log4e.el &#x2026; 0.2.0
--   yaxception.el &#x2026; 0.1
+-   yaxception.el &#x2026; 0.3.2
 
 **Enjoy!!!**

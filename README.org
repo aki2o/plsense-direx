@@ -89,7 +89,7 @@
   - direx.el ... 0.1alpha
   - plsense.el ... 0.3.2
   - log4e.el ... 0.2.0
-  - yaxception.el ... 0.1
+  - yaxception.el ... 0.3.2
     
     
   *Enjoy!!!*

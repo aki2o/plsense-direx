@@ -79,6 +79,6 @@ But, if this trouble is not given improvement, you can get my improvements by us
 -   direx.el &#x2026; 0.1alpha
 -   plsense.el &#x2026; 0.3.2
 -   log4e.el &#x2026; 0.2.0
--   yaxception.el &#x2026; 0.1
+-   yaxception.el &#x2026; 0.3.2
 
 **Enjoy!!!**
