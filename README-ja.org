@@ -9,6 +9,8 @@
 
   [[file:image/demo.png][demo]]
 
+  [[file:image/demo2.png][demo2]]
+
 
 * 特徴
 
@@ -64,6 +66,8 @@
 ;; キーバインド
 (setq plsense-direx:open-explorer-key "C-x j")
 (setq plsense-direx:open-explorer-other-window-key "C-x J")
+(setq plsense-direx:open-referer-key "C-x M-j")
+(setq plsense-direx:open-referer-other-window-key "C-x C-M-J")
 
 ;; セットアップ実行
 (plsense-direx:config-default)

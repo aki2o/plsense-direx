@@ -9,6 +9,8 @@ About direx.el, see <https://github.com/m2ym/direx-el>
 
 ![demo](image/demo.png)
 
+![demo2](image/demo2.png)
+
 # Feature
 
 ### Show Help
@@ -58,6 +60,8 @@ Download plsense-direx.el and put it on your load-path.
 ;; Key binding
 (setq plsense-direx:open-explorer-key "C-x j")
 (setq plsense-direx:open-explorer-other-window-key "C-x J")
+(setq plsense-direx:open-referer-key "C-x M-j")
+(setq plsense-direx:open-referer-other-window-key "C-x C-M-J")
 
 ;; Do setup
 (plsense-direx:config-default)

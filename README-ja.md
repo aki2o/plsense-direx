@@ -7,6 +7,8 @@ direx.elについては、<https://github.com/m2ym/direx-el>
 
 ![demo](image/demo.png)
 
+![demo2](image/demo2.png)
+
 # 特徴
 
 ### ヘルプ表示
@@ -56,6 +58,8 @@ plsense-direx.elをダウンロードし、load-pathの通った場所に配置�
 ;; キーバインド
 (setq plsense-direx:open-explorer-key "C-x j")
 (setq plsense-direx:open-explorer-other-window-key "C-x J")
+(setq plsense-direx:open-referer-key "C-x M-j")
+(setq plsense-direx:open-referer-other-window-key "C-x C-M-J")
 
 ;; セットアップ実行
 (plsense-direx:config-default)
